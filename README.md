@@ -58,14 +58,27 @@ use Math::Trig;
 
 # Usage example
 
-```python
-lat1 = -2
-lon1 = -30
-lat2 = -1
-lon2 = -30
-    
-distance = calculate_distance(lat1, lon1, lat2, lon2)
-converted_distance = convert_distance(distance, "km")
+```perl
+print "Enter the latitude of the first point: ";
+my $lat1 = <STDIN>;
+chomp($lat1);
+print "Enter the longitude of the first point: ";
+my $lon1 = <STDIN>;
+chomp($lon1);
+print "Enter the latitude of the second point: ";
+my $lat2 = <STDIN>;
+chomp($lat2);
+print "Enter the longitude of the second point: ";
+my $lon2 = <STDIN>;
+chomp($lon2);
 
-print("The distance between the two points is approximately {:.2f} {}.".format(converted_distance, unit))
+my $distance = calculate_distance($lat1, $lon1, $lat2, $lon2);
+
+print "Enter the unit to convert to (km, miles, nautical miles): ";
+my $unit = <STDIN>;
+chomp($unit);
+my $converted_distance = convert_distance($distance, $unit);
+
+# Print the result on screen
+printf "The distance between the two points is approximately %.2f %s.\n", $converted_distance, $unit;
 ```
